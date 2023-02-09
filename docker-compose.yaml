@@ -2,7 +2,7 @@ version: "3"
 
 services:
   simulator:
-    build: ./simulator/Dockerfile
+    build: ./simulator/
     container_name: simulator
     volumes:
       - ./simulator:/go/src/
