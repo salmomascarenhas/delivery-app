@@ -1,16 +1,27 @@
 package main
 
-import routeImport "github.com/salmomascarenhas/delivery-app/simulator/application/route"
+import (
+	"fmt"
+	kafka2 "github.com/salmomascarenhas/delivery-app/application/kafka"
+	"github.com/salmomascarenhas/delivery-app/infra/kafka"
+	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
+	"github.com/joho/godotenv"
+	"log"
+)
+
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("error loading .env file")
+	}
+}
 
 func main() {
-	route := routeImport.Route{
-		ID: "1",
-		ClientID: "1",
+	msgChan := make(chan *ckafka.Message)
+	consumer := kafka.NewKafkaConsumer(msgChan)
+	go consumer.Consume()
+	for msg := range msgChan {
+		fmt.Println(string(msg.Value))
+		go kafka2.Produce(msg)
 	}
-
-	route.LoadPositions()
-	stringJason, _ := route.ExportJsonPositions()
-	fmt.Println(stringJason[0])
-
-
 }
