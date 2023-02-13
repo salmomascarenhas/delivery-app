@@ -1,2 +1,12 @@
 # delivery-app
-Aplicativo de entrega scalável desenvolvido na Imersão Full Stack &amp;&amp; Full Cycle.
+Aplicativo de entrega escalável desenvolvido na Imersão Full Stack &amp;&amp; FullCycle.
+
+# Tecnologias:
+- NestJS (backend);
+- Go Lang (microserviço);
+- ReactJS (frontend)
+- Apacha Kafka (comunicação)
+- Docker (deploy);
+- Kubernets (deploy)
+
+Para executar toda a aplicação, é necessário seguir toda uma ordem no momento de subir os containers. A ordem é: Kafka, simulator, backend e front.
