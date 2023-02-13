@@ -1,5 +1,5 @@
 # delivery-app
-Aplicativo de entrega escalável desenvolvido na Imersão Full Stack &amp;&amp; FullCycle.
+Aplicativo de entregas (delivery) com escalabilidade desenvolvido na Imersão Full Stack &amp;&amp; FullCycle.
 
 # Tecnologias:
 - NestJS (backend);
